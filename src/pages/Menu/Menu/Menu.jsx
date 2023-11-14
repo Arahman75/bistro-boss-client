@@ -14,10 +14,11 @@ import soupImg from '../../../assets/menu/soup-bg.jpg'
 const Menu = () => {
     const [menu] = useMenu();
     const offered = menu.filter(item => item.category === 'offered');
-    const soup = menu.filter(item => item.category === 'soup');
-    const pizza = menu.filter(item => item.category === 'pizza');
     const dessert = menu.filter(item => item.category === 'dessert');
+    const soup = menu.filter(item => item.category === 'soup');
     const salad = menu.filter(item => item.category === 'salad');
+    const pizza = menu.filter(item => item.category === 'pizza');
+
 
     return (
         <div>
@@ -27,7 +28,6 @@ const Menu = () => {
             <Cover
                 img={menuImg}
                 title={'OUR MENU'}
-                description={'Would you like to try a dish?'}
             ></Cover>
             {/* main covers */}
             <SectionTitle subHeading={"Don't miss"} heading={"TODAY'S OFFER"}></SectionTitle>
