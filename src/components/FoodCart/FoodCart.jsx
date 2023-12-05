@@ -4,6 +4,8 @@ import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import useCarts from '../../Hooks/useCarts';
 
 const FoodCart = ({ item }) => {
     // const { user } = useAuth;
@@ -11,12 +13,15 @@ const FoodCart = ({ item }) => {
     const { name, price, image, recipe, _id } = item;
     const navigate = useNavigate();
     const location = useLocation();
+    const axiosSecure = useAxiosSecure();
+    const [, refetch] = useCarts();
     // const from = location.state?.from?.pathname || "/";
 
-    const handleAddToCart = (food) => {
+    // const handleAddToCart = (food) => {
+    const handleAddToCart = () => {
         if (user && user.email) {
-            // todo : send item to the database
-            console.log(user.emil, food);
+            // send item to the database
+            console.log(user.emil);
             const cartItem = {
                 menuId: _id,
                 email: user.email,
@@ -24,7 +29,8 @@ const FoodCart = ({ item }) => {
                 name,
                 price
             }
-            axios.post('http://localhost:5000/carts', cartItem)
+            // axios.post('http://localhost:5000/carts', cartItem)
+            axiosSecure.post('/carts', cartItem)
                 .then(res => {
                     console.log(res.data);
                     if (res.data.insertedId) {
@@ -35,6 +41,8 @@ const FoodCart = ({ item }) => {
                             showConfirmButton: false,
                             timer: 1500
                         });
+                        // refetch the cart to update the items cart
+                        refetch();
                     }
                 })
 
@@ -66,7 +74,8 @@ const FoodCart = ({ item }) => {
                 <h2 className="card-title">{name}</h2>
                 <p>{recipe}</p>
                 <div className='flex items-center justify-center'>
-                    <button onClick={() => handleAddToCart(item)} className="btn btn-outline border-0 border-b-4 mt-4 border-orange-500">Add to Cart</button>
+                    {/* <button onClick={() => handleAddToCart(item)} className="btn btn-outline border-0 border-b-4 mt-4 border-orange-500">Add to Cart</button> */}
+                    <button onClick={handleAddToCart} className="btn btn-outline border-0 border-b-4 mt-4 border-orange-500">Add to Cart</button>
                 </div>
             </div>
         </div>
