@@ -1,41 +1,80 @@
 
-import SectionTitle from '../../../components/SectionTitle/SectionTitle';
+// import SectionTitle from '../../../components/SectionTitle/SectionTitle';
+// import MenuItem from '../../Shared/MenuItem/MenuItem';
+// import useMenu from '../../../Hooks/useMenu';
+
+// const PopularMenu = () => {
+//     const [menu] = useMenu();
+//     const popularMenu = menu.filter(item => item.category === 'popular');
+
+// const [menu, setMenu] = useState([]);
+// useEffect(() => {
+//     fetch('/menu.json')
+//         .then(res => res.json())
+//         .then(data => {
+//             const PopularItems = data.filter(item => item.category === "popular");
+//             setMenu(PopularItems)
+//         }
+//         )
+// }, [])
+
+//     return (
+//         <div className='mb-12'>
+//             <SectionTitle
+//                 subHeading='Popular Items'
+//                 heading='FROM OUR MENU'
+//             ></SectionTitle>
+//             <div className='grid md:grid-cols-2 gap-4'>
+//                 {
+//                     popularMenu.map(item => <MenuItem
+//                         key={item._id}
+//                         item={item}
+//                     ></MenuItem>)
+//                 }
+//             </div>
+//             <div className='flex items-center justify-center'>
+//                 <button className="btn btn-outline border-0 border-b-4 mt-4">View Full Menu</button>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default PopularMenu;
+import React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import MenuItem from '../../Shared/MenuItem/MenuItem';
-import useMenu from '../../../Hooks/useMenu';
+import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 
 const PopularMenu = () => {
-    const [menu] = useMenu();
-    const popularMenu = menu.filter(item => item.category === 'popular');
+    const [menu, setMenu] = useState([]);
 
-    // const [menu, setMenu] = useState([]);
-    // useEffect(() => {
-    //     fetch('/menu.json')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             const PopularItems = data.filter(item => item.category === "popular");
-    //             setMenu(PopularItems)
-    //         }
-    //         )
-    // }, [])
 
+    useEffect(() => {
+        fetch('/menu.json')
+            .then(res => res.json())
+            .then(data => {
+                const popularMenu = data.filter(item => item.category === 'popular')
+                console.log(popularMenu);
+                setMenu(popularMenu)
+            })
+    }, [])
     return (
-        <div className='mb-12'>
+        <section className='mb-12'>
             <SectionTitle
-                subHeading='Popular Items'
-                heading='FROM OUR MENU'
-            ></SectionTitle>
-            <div className='grid md:grid-cols-2 gap-4'>
+                subHeading={'Check it out'}
+                heading={'FROM OUR MENU'}
+            >
+            </SectionTitle>
+            <div className='grid md:grid-cols-1 lg:grid-cols-2 gap-10'>
                 {
-                    popularMenu.map(item => <MenuItem
+                    menu.map(item => <MenuItem
                         key={item._id}
                         item={item}
                     ></MenuItem>)
                 }
             </div>
-            <div className='flex items-center justify-center'>
-                <button className="btn btn-outline border-0 border-b-4 mt-4">View Full Menu</button>
-            </div>
-        </div>
+        </section>
     );
 };
 

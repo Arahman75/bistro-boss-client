@@ -25,12 +25,16 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
 import Category from '../Category/Category';
+import SecondBanner from '../SecondBanner/SecondBanner';
+import PopularMenu from '../PopularMenu/PopularMenu';
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
             <Category></Category>
+            <SecondBanner></SecondBanner>
+            <PopularMenu></PopularMenu>
         </div>
     );
 };
