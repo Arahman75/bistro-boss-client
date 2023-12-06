@@ -27,6 +27,10 @@ import Banner from '../Banner/Banner';
 import Category from '../Category/Category';
 import SecondBanner from '../SecondBanner/SecondBanner';
 import PopularMenu from '../PopularMenu/PopularMenu';
+import Featured from '../Featured/Featured';
+import Testimonials from '../Testimonials/Testimonials';
+import ChefRecommend from '../ChefRecommend/ChefRecommend';
+import CallUs from '../CallUs/CallUs';
 
 const Home = () => {
     return (
@@ -35,6 +39,10 @@ const Home = () => {
             <Category></Category>
             <SecondBanner></SecondBanner>
             <PopularMenu></PopularMenu>
+            <CallUs></CallUs>
+            <ChefRecommend></ChefRecommend>
+            <Featured></Featured>
+            <Testimonials></Testimonials>
         </div>
     );
 };
