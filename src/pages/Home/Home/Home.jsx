@@ -31,10 +31,14 @@ import Featured from '../Featured/Featured';
 import Testimonials from '../Testimonials/Testimonials';
 import ChefRecommend from '../ChefRecommend/ChefRecommend';
 import CallUs from '../CallUs/CallUs';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Bistro Boos | Home</title>
+            </Helmet>
             <Banner></Banner>
             <Category></Category>
             <SecondBanner></SecondBanner>

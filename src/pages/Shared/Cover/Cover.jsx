@@ -1,4 +1,3 @@
-import React from 'react';
 import { Parallax } from 'react-parallax';
 
 const Cover = ({ img, title }) => {
@@ -6,19 +5,23 @@ const Cover = ({ img, title }) => {
         <Parallax
             blur={{ min: -50, max: 50 }}
             bgImage={img}
-            bgImageAlt="the menu"
+            bgImageAlt="the menu img"
             strength={-200}
         >
-            <div className="hero h-[700px] mb-12">
-                <div className="hero-overlay bg-opacity-60"></div>
-                <div className="hero-content text-center text-neutral-content">
-                    <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold">{title}</h1>
-                        <p className="mb-5">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus adipisci natus, est vel voluptates dolorum totam rerum ratione enim architecto!</p>
+            <div>
+                <div className="hero h-[700px]">
+                    <div className="hero-overlay bg-opacity-60"></div>
+                    <div className="hero-content text-center text-neutral-content">
+                        <div className="max-w-md">
+                            <h1 className="mb-5 text-5xl font-bold uppercase">{title}</h1>
+                            <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </Parallax>
+
+
 
     );
 };
