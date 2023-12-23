@@ -32,7 +32,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className='bg-[#151515] h-12 flex items-center justify-center'>
-                <p>Copyright ©{year} CulinaryCloud. All rights reserved.</p>
+                <p>Copyright ©{year} Md. Abdur Rahman All rights reserved.</p>
             </div>
         </div>
     );
