@@ -6,7 +6,7 @@ const Navbar = () => {
     const navLinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/menu'>Our Menu</NavLink></li>
-        <li><NavLink to='/order'>Order Food</NavLink></li>
+        <li><NavLink to='/order/salad'>Order Food</NavLink></li>
     </>
     return (
         <div className="navbar max-w-screen-xl mx-auto fixed z-10 bg:opacity-30 bg-black text-white">

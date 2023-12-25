@@ -8,6 +8,7 @@ import useMenu from '../../../Hooks/useMenu';
 import OrderTabs from '../OrderTabs/OrderTabs';
 import { useParams } from 'react-router-dom';
 
+
 const Order = () => {
     const categories = ['salad', 'pizza', 'soup', 'dessert', 'drinks'];
     const { category } = useParams();
@@ -26,7 +27,7 @@ const Order = () => {
     return (
         <div>
             <Helmet>
-                <title>Bistro Boos | Order</title>
+                <title>Bistro Boos | Order Food</title>
             </Helmet>
             <Cover title={"OUR SHOP"} img={orderImg}></Cover>
             <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
@@ -34,7 +35,7 @@ const Order = () => {
                     <Tab>Salad</Tab>
                     <Tab>Pizza</Tab>
                     <Tab>Soups</Tab>
-                    <Tab>Desserts</Tab>
+                    <Tab>Dessert</Tab>
                     <Tab>Drinks</Tab>
                 </TabList>
                 <TabPanel>
