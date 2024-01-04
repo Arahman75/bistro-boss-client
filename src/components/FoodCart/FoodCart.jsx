@@ -88,6 +88,9 @@ import React from 'react';
 
 const FoodCart = ({ item }) => {
     const { image, price, name, recipe } = item;
+    const handleAddToCart = (food) => {
+        console.log(food)
+    }
     return (
         <div className="card bg-base-100 shadow-xl">
             <figure><img className='w-full' src={image} alt="Shoes" /></figure>
@@ -96,7 +99,7 @@ const FoodCart = ({ item }) => {
                 <h2 className="card-title">{name}</h2>
                 <p>{recipe}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Add to Cart</button>
+                    <button onClick={() => handleAddToCart(item)} className="btn btn-primary">Add to Cart</button>
                 </div>
             </div>
         </div>
