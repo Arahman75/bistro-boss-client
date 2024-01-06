@@ -85,11 +85,67 @@
 // export default FoodCart;
 
 import React from 'react';
+import useAuth from '../../Hooks/useAuth';
+import Swal from 'sweetalert2';
+import { useLocation, useNavigate } from 'react-router-dom';
+// import axios from 'axios';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const FoodCart = ({ item }) => {
-    const { image, price, name, recipe } = item;
+    const { image, price, name, recipe, _id } = item;
+
+    const { user } = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const axiosSecure = useAxiosSecure();
+
+
     const handleAddToCart = (food) => {
-        console.log(food)
+        // console.log(food, user.email)
+        if (user && user.email) {
+            // Todo : sent cart items to the database
+            console.log(user.email, food);
+            const cartItem = {
+                menuId: _id,
+                email: user.email,
+                name,
+                image,
+                price
+            }
+            // axios.post('http://localhost:5000/carts', cartItem)
+            // use axiosSecure hook useAxiosSecure
+            axiosSecure.post('/carts', cartItem)
+                .then(res => {
+                    console.log(res.data)
+                    if (res.data.insertedId
+                    ) {
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: `${name} Added to my cart`,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                })
+
+        }
+        else {
+            Swal.fire({
+                title: "You are not logged In",
+                text: "Please login to add to the cart?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, Login!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Send the user to the login page
+                    navigate('/login', { state: { from: location } })
+                }
+            });
+        }
     }
     return (
         <div className="card bg-base-100 shadow-xl">

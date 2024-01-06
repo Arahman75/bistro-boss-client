@@ -93,11 +93,12 @@ const Login = () => {
                                 <label className="label">
                                     <LoadCanvasTemplate />
                                 </label>
-                                <input onBlur={handleValidateCaptcha} type="text" name='captcha' placeholder="type the Captcha above" className="input input-bordered" required />
+                                <input onBlur={handleValidateCaptcha} type="text" name='captcha' placeholder="type the Captcha above" className="input input-bordered" />
                                 {/* <button className="btn btn-outline btn-xs">Validate</button> */}
                             </div>
                             <div className="form-control mt-6">
-                                <input disabled={disabled} className="btn btn-primary" type="submit" value="Login" />
+                                {/* Todo: Apply disabled for re captcha*/}
+                                <input disabled={false} className="btn btn-primary" type="submit" value="Login" />
                             </div>
                             <p>Are you new here? <Link to='/signup' className='text-green-500 font-bold'>Please signUp</Link></p>
                         </form>
