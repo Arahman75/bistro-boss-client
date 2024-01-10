@@ -39,7 +39,7 @@
 
 // export default Dashboard;
 import React from 'react';
-import { FaAd, FaCalendar, FaHome, FaList, FaPaypal, FaSearch, FaShoppingCart } from 'react-icons/fa';
+import { FaAd, FaCalendar, FaEnvelope, FaHome, FaList, FaPaypal, FaSearch, FaShoppingCart } from 'react-icons/fa';
 import { NavLink, Outlet } from 'react-router-dom';
 import useCart from '../Hooks/useCarts';
 
@@ -63,7 +63,8 @@ const Dashboard = () => {
                     <li className='mb-4'><NavLink to='/dashboard/booking'> <FaList></FaList>My Booking</NavLink></li>
                     <div className="divider"></div>
                     <li className='mb-4'><NavLink to='/'> <FaHome></FaHome>Home</NavLink></li>
-                    <li className='mb-4'><NavLink to='/menu'> <FaSearch></FaSearch>Menu</NavLink></li>
+                    <li className='mb-4'><NavLink to='/order/salad'> <FaSearch></FaSearch>Menu</NavLink></li>
+                    <li className='mb-4'><NavLink to='/order/contact'> <FaEnvelope></FaEnvelope>Contact</NavLink></li>
 
                 </ul>
 
