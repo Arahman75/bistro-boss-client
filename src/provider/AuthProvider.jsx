@@ -4,12 +4,13 @@ import { app } from '../firebase/firebase.config';
 import useAxiosPublic from '../Hooks/useAxiosPublic';
 
 export const AuthContext = createContext(null);
+
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const axiosPublic = useAxiosPublic();
     const [loading, setLoading] = useState(true);
     const googleProvider = new GoogleAuthProvider();
+    const axiosPublic = useAxiosPublic();
 
 
     const createUser = (email, password) => {
